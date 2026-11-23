@@ -28,7 +28,8 @@
             "x64"
           ]
         }
-      ]
+      ],
+      "artifactName": "Studyloom-Setup-${version}-win-${arch}.${ext}"
     },
     "nsis": {
       "oneClick": false,
