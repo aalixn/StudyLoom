@@ -45,13 +45,15 @@ Grab the latest build from the [**Releases**](../../releases/latest) page.
 
 | Platform | File |
 |---|---|
-| Windows 10/11 (64-bit) | `Studyloom-Setup-<version>-win-x64.exe` |
-| macOS, Apple Silicon | `Studyloom-<version>-arm64-mac.zip` |
-| macOS, Intel | `Studyloom-<version>-mac.zip` |
+| Windows 10/11 (64-bit) | `Studyloom Setup <version>.exe` |
+| macOS, Apple Silicon | `Studyloom-<version>-arm64.dmg` |
+| macOS, Intel | `Studyloom-<version>-x64.dmg` |
+
+Installers are built automatically by GitHub Actions whenever a `v*` tag is pushed.
 
 > **The builds are not code-signed**, so your OS will warn you the first time.
 > - **Windows:** "Windows protected your PC" → **More info → Run anyway**.
-> - **macOS:** unzip, move `Studyloom.app` to Applications, then right-click it → **Open**. If macOS says the app is damaged, run `xattr -cr /Applications/Studyloom.app`.
+> - **macOS:** open the `.dmg`, drag Studyloom to Applications, then right-click it → **Open**. If macOS says the app is damaged, run `xattr -cr /Applications/Studyloom.app`.
 
 ## Run from source
 
@@ -63,9 +65,8 @@ npm start
 ## Build installers
 
 ```bash
-npm run dist:mac        # macOS zips (works on any OS)
-npm run dist:win        # Windows installer via electron-builder (needs Windows, or Wine on Linux/macOS)
-makensis installer.nsi  # lightweight Windows installer from dist/win-unpacked (needs NSIS)
+npm run dist:mac        # .dmg + .zip (run on a Mac)
+npm run dist:win        # Windows installer (run on Windows)
 ```
 
 ## How it works
