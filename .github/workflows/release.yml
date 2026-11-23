@@ -33,6 +33,7 @@ jobs:
         run: |
           for pair in "mac-arm64:arm64" "mac:x64"; do
             dir="${pair%%:*}"; arch="${pair##*:}"
+            codesign --force --deep --sign - "dist/$dir/Studyloom.app"
             stage="stage-$arch"; mkdir "$stage"
             cp -R "dist/$dir/Studyloom.app" "$stage/"
             ln -s /Applications "$stage/Applications"
