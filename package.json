@@ -1,0 +1,65 @@
+{
+  "name": "studyloom",
+  "productName": "Studyloom",
+  "version": "1.6.0",
+  "description": "Endless generative focus music",
+  "main": "main.js",
+  "author": "Aalian",
+  "license": "MIT",
+  "build": {
+    "appId": "com.aalian.studyloom",
+    "productName": "Studyloom",
+    "icon": "icon.png",
+    "files": [
+      "main.js",
+      "index.html",
+      "ascii.js",
+      "icon.png",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "shortcutName": "Studyloom"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "category": "public.app-category.music",
+      "identity": null
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis --x64",
+    "dist:mac": "electron-builder --mac zip --arm64 --x64"
+  },
+  "homepage": "https://github.com/aalixn/Studyloom"
+}
